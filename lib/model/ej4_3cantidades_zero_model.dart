@@ -1,9 +1,7 @@
 class Ej43cantidadeszeroModel {
   List<int> cantidades = [];
 
-  Ej43cantidadeszeroModel(int cantidad) {
-    cantidades.add(cantidad);
-  }
+  Ej43cantidadeszeroModel(this.cantidades);
 
   String comprobarCantidades() {
     List<int> menorZero = [];
@@ -27,6 +25,9 @@ class Ej43cantidadeszeroModel {
     String listaMayores =
         "Lista de valores mayores a cero: ${mayorZero.join(",")}";
 
-    return "Cantidad de ceros: $zero \n Cantidad mayor a cero: ${mayorZero.length} \n ";
+    String listaMenores =
+        "Lista de valores menores a cero: ${menorZero.join(",")}";
+
+    return "Cantidad de ceros: $zero \n Cantidad mayor a cero: ${mayorZero.length} \n $listaMayores \n Cantidad menor a cero: ${menorZero.length} \n $listaMenores";
   }
 }

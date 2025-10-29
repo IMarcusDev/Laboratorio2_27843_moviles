@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:laboratorio2_app/views/ej1_calcular_sueldo.dart';
-import 'package:laboratorio2_app/views/resultado_view.dart';
+import 'views/ej4_8supermercado_pageview.dart';
+import 'views/ej4_8_resultados.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(MiApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
+class MiApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

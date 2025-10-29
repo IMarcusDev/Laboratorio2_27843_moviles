@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
-import '../controller/ej4_3cantidades_zero_controller.dart';
+import '../controller/ej4_8supermercado_controller.dart';
 import '../widgets/widgets_Ej43/input_field.dart';
 import '../widgets/widgets_Ej43/boton_comprobar.dart';
 import '../widgets/widgets_Ej43/text_field_fast_response.dart';
 
-class PaginaView extends StatefulWidget {
+class Ej48PaginaView extends StatefulWidget {
+  const Ej48PaginaView({super.key});
+
   @override
-  State<PaginaView> createState() => _PaginaViewState();
+  State<Ej48PaginaView> createState() => _PaginaViewState();
 }
 
-class _PaginaViewState extends State<PaginaView> {
-  final controller = Ej43cantidadesZeroController();
-  final numeroCtrl = TextEditingController();
+class _PaginaViewState extends State<Ej48PaginaView> {
+  final controller = Ej48supermercadoController();
+  final nombreCtrl = TextEditingController();
+  final precioCtrl = TextEditingController();
   String mensaje = "";
 
   void _ingresar() {
     setState(() {
-      mensaje = controller.ingresarCantidades(numeroCtrl.text);
+      mensaje = controller.ingresarArticulos(nombreCtrl.text, precioCtrl.text);
     });
   }
 
   void _calcular() {
-    final resultado = controller.comprobarCantidadesZero();
-    controller.limpiarLista();
+    final resultado = controller.procesarCarrito();
+    controller.limpiarMapa();
     Navigator.pushNamed(context, '/resultado', arguments: resultado);
   }
 
@@ -37,8 +40,13 @@ class _PaginaViewState extends State<PaginaView> {
             TextFieldFasteResponse(mensaje: mensaje),
             const SizedBox(height: 10),
             InputField(
-              controller: numeroCtrl,
-              label: "Ingrese el número (Ej.10)",
+              controller: nombreCtrl,
+              label: "Ingrese el nombre del producto",
+            ),
+            const SizedBox(height: 20),
+            InputField(
+              controller: precioCtrl,
+              label: "Ingrese el precio del producto",
             ),
             const SizedBox(height: 20),
             BotonComprobar(onPressed: _ingresar, label: "Ingresar cantidad"),
