@@ -20,39 +20,101 @@ class _PaginaViewState extends State<Ej48PaginaView> {
   void _ingresar() {
     setState(() {
       mensaje = controller.ingresarArticulos(nombreCtrl.text, precioCtrl.text);
+      // Limpiar campos si el ingreso fue exitoso
+      if (mensaje.contains("exito")) {
+        nombreCtrl.clear();
+        precioCtrl.clear();
+        // Quitar foco para esconder el teclado
+        FocusScope.of(context).unfocus();
+      }
     });
   }
 
   void _calcular() {
+    if (controller.estaVacio()) {
+      setState(() {
+        mensaje = "No hay artículos en el carrito para procesar.";
+      });
+      return;
+    }
+
     final resultado = controller.procesarCarrito();
     controller.limpiarMapa();
-    Navigator.pushNamed(context, '/resultado', arguments: resultado);
+    setState(() {
+      mensaje = ""; // Limpiar mensaje al salir
+    });
+    Navigator.pushNamed(context, '/ej4_8/vaucher', arguments: resultado);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Contabilizar extremos")),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextFieldFasteResponse(mensaje: mensaje),
-            const SizedBox(height: 10),
-            InputField(
-              controller: nombreCtrl,
-              label: "Ingrese el nombre del producto",
-            ),
-            const SizedBox(height: 20),
-            InputField(
-              controller: precioCtrl,
-              label: "Ingrese el precio del producto",
-            ),
-            const SizedBox(height: 20),
-            BotonComprobar(onPressed: _ingresar, label: "Ingresar cantidad"),
-            const SizedBox(height: 20),
-            BotonComprobar(onPressed: _calcular, label: "comprobar"),
-          ],
+      appBar: AppBar(
+        title: const Text("Carrito de Supermercado"),
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              // --- ÁTOMO DE RESPUESTA RÁPIDA ---
+              TextFieldFasteResponse(mensaje: mensaje),
+              const SizedBox(height: 16),
+
+              // --- MOLÉCULA DE FORMULARIO ---
+              Card(
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      // --- ÁTOMO DE ENTRADA (NOMBRE) ---
+                      InputField(
+                        controller: nombreCtrl,
+                        label: "Nombre del producto",
+                        icon: Icons.shopping_bag_outlined,
+                        keyboardType: TextInputType.text,
+                      ),
+                      const SizedBox(height: 20),
+
+                      // --- ÁTOMO DE ENTRADA (PRECIO) ---
+                      InputField(
+                        controller: precioCtrl,
+                        label: "Precio del producto",
+                        icon: Icons.attach_money,
+                        keyboardType: const TextInputType.numberWithOptions(
+                          decimal: true,
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+
+                      // --- ÁTOMO DE BOTÓN (INGRESAR) ---
+                      BotonComprobar(
+                        onPressed: _ingresar,
+                        label: "Ingresar Artículo",
+                        isPrimary: false, // Estilo secundario
+                        icon: Icons.add_shopping_cart,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // --- ÁTOMO DE BOTÓN (CALCULAR) ---
+              BotonComprobar(
+                onPressed: _calcular,
+                label: "Calcular Descuentos",
+                isPrimary: true, // Estilo primario
+                icon: Icons.calculate_outlined,
+              ),
+            ],
+          ),
         ),
       ),
     );

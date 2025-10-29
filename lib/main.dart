@@ -30,15 +30,15 @@ class MiApp extends StatelessWidget {
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
       initialRoute: '/',
       routes: {
-        // Añadir rutas de otros ejercicios
-        '/': (context) => Ej1CalcularSueldo(),
-        '/ej1/': (context) => Ej1CalcularSueldo(),
-        '/ej1/sueldo': (context) => ResultadoView(),
-        '/ej1/factura': (context) => ResultadoView(),
-        '/ej4_1/': (context) => Ej1CalcularSueldo(),
-        '/ej4_2/': (context) => Ej1CalcularSueldo(),
-        '/ej4_3/': (context) => Ej1CalcularSueldo(),
-        '/ej4_8/': (context) => Ej1CalcularSueldo(),
+        //   // Añadir rutas de otros ejercicios
+        '/': (context) => Ej48PaginaView(),
+        // '/ej1/': (context) => Ej1CalcularSueldo(),
+        //   '/ej1/sueldo': (context) => ResultadoView(),
+        '/ej4_8/vaucher': (context) => Ej48ResultadoView(),
+        //   '/ej4_1/': (context) => Ej1CalcularSueldo(),
+        //   '/ej4_2/': (context) => Ej1CalcularSueldo(),
+        //   '/ej4_3/': (context) => Ej1CalcularSueldo(),
+        //   '/ej4_8/': (context) => Ej1CalcularSueldo(),
       },
     );
   }

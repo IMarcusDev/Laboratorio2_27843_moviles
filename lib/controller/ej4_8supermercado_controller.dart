@@ -24,6 +24,10 @@ class Ej48supermercadoController {
     return "Articulo ingresado con exito";
   }
 
+  bool estaVacio() {
+    return _listaDeArticulos.isEmpty;
+  }
+
   void limpiarMapa() {
     _listaDeArticulos.clear();
   }
