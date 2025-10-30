@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laboratorio2_app/views/ej1_calcular_sueldo.dart';
 import 'package:laboratorio2_app/views/ej4_3_resultados.dart';
+import 'package:laboratorio2_app/views/ej4_8supermercado_pageview.dart';
 import 'package:laboratorio2_app/views/menu_view.dart';
 
 void main() => runApp(MiApp());
@@ -10,6 +11,7 @@ class MiApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Tarea 2',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -39,7 +41,7 @@ class MiApp extends StatelessWidget {
         '/ej4_1': (context) => Ej1CalcularSueldo(),
         '/ej4_2': (context) => Ej1CalcularSueldo(),
         '/ej4_3': (context) => Ej1CalcularSueldo(),
-        '/ej4_8': (context) => Ej1CalcularSueldo(),
+        '/ej4_8': (context) => Ej48PaginaView(),
       },
     );
   }

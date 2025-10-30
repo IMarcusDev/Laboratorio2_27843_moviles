@@ -4,6 +4,8 @@ import '../widgets/input_venta.dart';
 import '../widgets/process_btn.dart';
 
 class Ej1CalcularSueldo extends StatefulWidget {
+  const Ej1CalcularSueldo({super.key});
+
   @override
   State<Ej1CalcularSueldo> createState() => _Ej1CalcularSueldoState();
 }
@@ -35,23 +37,62 @@ class _Ej1CalcularSueldoState extends State<Ej1CalcularSueldo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Cálculo de Sueldo")),
-      body: Padding(
+      appBar: AppBar(
+        title: const Text("Cálculo de Sueldo"),
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+        centerTitle: true,
+        elevation: 2,
+      ),
+
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            InputVenta(controller: venta1Ctrl, label: "Venta 1"),
-            const SizedBox(height: 10),
-            InputVenta(controller: venta2Ctrl, label: "Venta 2"),
-            const SizedBox(height: 10),
-            InputVenta(controller: venta3Ctrl, label: "Venta 3"),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ProcessBtn(text: 'Calcular Sueldo', onPressed: _calcularSueldo),
-                ProcessBtn(text: 'Ver Factura', onPressed: _verFactura),
-              ],
+            // --- TARJETA PRINCIPAL ---
+            Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    InputVenta(
+                      controller: venta1Ctrl,
+                      label: "Venta 1",
+                    ),
+                    const SizedBox(height: 16),
+                    InputVenta(
+                      controller: venta2Ctrl,
+                      label: "Venta 2",
+                    ),
+                    const SizedBox(height: 16),
+                    InputVenta(
+                      controller: venta3Ctrl,
+                      label: "Venta 3",
+                    ),
+
+                    const SizedBox(height: 30),
+
+                    // Botones
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ProcessBtn(
+                          text: 'Calcular Sueldo',
+                          onPressed: _calcularSueldo,
+                        ),
+                        ProcessBtn(
+                        text: 'Ver Factura',
+                        onPressed: _verFactura,
+                      ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
