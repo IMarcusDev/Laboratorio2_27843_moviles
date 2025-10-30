@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'views/ej4_8supermercado_pageview.dart';
-import 'views/ej4_8_resultados.dart';
+import 'package:laboratorio2_app/views/ej1_calcular_sueldo.dart';
+import 'package:laboratorio2_app/views/ej4_3_resultados.dart';
+import 'package:laboratorio2_app/views/menu_view.dart';
 
 void main() => runApp(MiApp());
 
@@ -30,15 +31,15 @@ class MiApp extends StatelessWidget {
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
       initialRoute: '/',
       routes: {
-        //   // Añadir rutas de otros ejercicios
-        '/': (context) => Ej48PaginaView(),
-        // '/ej1/': (context) => Ej1CalcularSueldo(),
-        //   '/ej1/sueldo': (context) => ResultadoView(),
-        '/ej4_8/vaucher': (context) => Ej48ResultadoView(),
-        //   '/ej4_1/': (context) => Ej1CalcularSueldo(),
-        //   '/ej4_2/': (context) => Ej1CalcularSueldo(),
-        //   '/ej4_3/': (context) => Ej1CalcularSueldo(),
-        //   '/ej4_8/': (context) => Ej1CalcularSueldo(),
+        // Añadir rutas de otros ejercicios
+        '/': (context) => MenuView(),
+        '/ej1': (context) => Ej1CalcularSueldo(),
+        '/ej1/sueldo': (context) => ResultadoView(),
+        '/ej1/factura': (context) => ResultadoView(),
+        '/ej4_1': (context) => Ej1CalcularSueldo(),
+        '/ej4_2': (context) => Ej1CalcularSueldo(),
+        '/ej4_3': (context) => Ej1CalcularSueldo(),
+        '/ej4_8': (context) => Ej1CalcularSueldo(),
       },
     );
   }
