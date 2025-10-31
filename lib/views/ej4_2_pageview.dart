@@ -34,9 +34,7 @@ class _Ej42PaginaViewState extends State<Ej42PaginaView> {
       return;
     }
 
-    // Navegar a la vista de resultados pasando el mapa de resultado
     Navigator.pushNamed(context, '/ej4_2/result', arguments: resultado);
-    // limpiar campos y mensaje
     setState(() {
       mensaje = '';
       sencillasCtrl.clear();
@@ -65,34 +63,51 @@ class _Ej42PaginaViewState extends State<Ej42PaginaView> {
                   color: Colors.yellow[100],
                   child: Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: Text(mensaje, style: const TextStyle(color: Colors.black87)),
+                    child: Text(
+                      mensaje,
+                      style: const TextStyle(color: Colors.black87),
+                    ),
                   ),
                 ),
               const SizedBox(height: 12),
 
               Card(
                 elevation: 2,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      InputVenta(controller: sencillasCtrl, label: 'Cantidad - Sencillas (S)'),
+                      InputVenta(
+                        controller: sencillasCtrl,
+                        label: 'Cantidad - Sencillas (S)',
+                      ),
                       const SizedBox(height: 12),
-                      InputVenta(controller: doblesCtrl, label: 'Cantidad - Dobles (D)'),
+                      InputVenta(
+                        controller: doblesCtrl,
+                        label: 'Cantidad - Dobles (D)',
+                      ),
                       const SizedBox(height: 12),
-                      InputVenta(controller: triplesCtrl, label: 'Cantidad - Triples (T)'),
+                      InputVenta(
+                        controller: triplesCtrl,
+                        label: 'Cantidad - Triples (T)',
+                      ),
                       const SizedBox(height: 12),
 
                       Row(
                         children: [
                           Checkbox(
                             value: conTarjeta,
-                            onChanged: (v) => setState(() => conTarjeta = v ?? false),
+                            onChanged: (v) =>
+                                setState(() => conTarjeta = v ?? false),
                           ),
                           const SizedBox(width: 8),
-                          const Expanded(child: Text('Pago con tarjeta (recargo 5%)')),
+                          const Expanded(
+                            child: Text('Pago con tarjeta (recargo 5%)'),
+                          ),
                         ],
                       ),
                       const SizedBox(height: 8),

@@ -1,9 +1,12 @@
 import '../model/ej4_2_model.dart';
 
 class Ej42Controller {
-  /// Valida las entradas (cantidades) y devuelve un mensaje de error o el mapa
-  /// con resultados.
-  Map<String, dynamic> procesar(String sS, String sD, String sT, bool conTarjeta) {
+  Map<String, dynamic> procesar(
+    String sS,
+    String sD,
+    String sT,
+    bool conTarjeta,
+  ) {
     if (sS.isEmpty && sD.isEmpty && sT.isEmpty) {
       return {'error': 'Ingrese al menos una cantidad.'};
     }
@@ -44,7 +47,7 @@ class Ej42Controller {
     final total = (data['total'] as double);
     final conTarjeta = data['conTarjeta'] as bool;
 
-  return '''Hamburguesas:
+    return '''Hamburguesas:
 Sencillas: $s x \$${Ej42Model.precioS.toStringAsFixed(2)}
 Dobles: $d x \$${Ej42Model.precioD.toStringAsFixed(2)}
 Triples: $t x \$${Ej42Model.precioT.toStringAsFixed(2)}

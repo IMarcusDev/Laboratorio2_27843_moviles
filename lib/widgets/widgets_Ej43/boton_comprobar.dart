@@ -25,7 +25,6 @@ class BotonComprobar extends StatelessWidget {
     final buttonLabel = Text(label);
 
     if (isPrimary) {
-      // Botón principal (relleno)
       return icon != null
           ? FilledButton.icon(
               onPressed: onPressed,
@@ -39,7 +38,6 @@ class BotonComprobar extends StatelessWidget {
               child: buttonLabel,
             );
     } else {
-      // Botón secundario (elevado o tonal)
       return icon != null
           ? ElevatedButton.icon(
               onPressed: onPressed,

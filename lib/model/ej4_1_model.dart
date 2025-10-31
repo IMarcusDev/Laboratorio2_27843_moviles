@@ -5,7 +5,6 @@ class Ej41Model {
 
   Ej41Model(this.salarioInicial, this.porcentajeIncremento, this.anios);
 
-  /// Retorna la lista de salarios recibidos en cada año (después de aplicar el incremento anual).
   List<double> salariosPorAnio() {
     final List<double> lista = [];
     double salario = salarioInicial;

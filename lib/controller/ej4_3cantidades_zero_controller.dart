@@ -2,6 +2,7 @@ import '../model/ej4_3cantidades_zero_model.dart';
 
 class Ej43cantidadesZeroController {
   final List<int> _listaDeCantidades = [];
+  bool get estaVacia => _listaDeCantidades.isEmpty;
 
   String ingresarCantidades(String cantidadText) {
     if (cantidadText.isEmpty) {
@@ -19,7 +20,7 @@ class Ej43cantidadesZeroController {
     }
 
     _listaDeCantidades.add(cantidadInteger);
-    return "Cantidad ingresada";
+    return "Cantidad ingresada con exito";
   }
 
   void limpiarLista() {

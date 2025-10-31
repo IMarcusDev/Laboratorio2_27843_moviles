@@ -20,11 +20,9 @@ class _PaginaViewState extends State<Ej48PaginaView> {
   void _ingresar() {
     setState(() {
       mensaje = controller.ingresarArticulos(nombreCtrl.text, precioCtrl.text);
-      // Limpiar campos si el ingreso fue exitoso
       if (mensaje.contains("exito")) {
         nombreCtrl.clear();
         precioCtrl.clear();
-        // Quitar foco para esconder el teclado
         FocusScope.of(context).unfocus();
       }
     });
@@ -41,9 +39,9 @@ class _PaginaViewState extends State<Ej48PaginaView> {
     final resultado = controller.procesarCarrito();
     controller.limpiarMapa();
     setState(() {
-      mensaje = ""; // Limpiar mensaje al salir
+      mensaje = "";
     });
-    Navigator.pushNamed(context, '/ej4_8/vaucher', arguments: resultado);
+    Navigator.pushNamed(context, '/ej4_8/voucher', arguments: resultado);
   }
 
   @override
@@ -58,11 +56,8 @@ class _PaginaViewState extends State<Ej48PaginaView> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              // --- ÁTOMO DE RESPUESTA RÁPIDA ---
               TextFieldFasteResponse(mensaje: mensaje),
               const SizedBox(height: 16),
-
-              // --- MOLÉCULA DE FORMULARIO ---
               Card(
                 elevation: 2,
                 shape: RoundedRectangleBorder(
@@ -73,7 +68,6 @@ class _PaginaViewState extends State<Ej48PaginaView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      // --- ÁTOMO DE ENTRADA (NOMBRE) ---
                       InputField(
                         controller: nombreCtrl,
                         label: "Nombre del producto",
@@ -81,8 +75,6 @@ class _PaginaViewState extends State<Ej48PaginaView> {
                         keyboardType: TextInputType.text,
                       ),
                       const SizedBox(height: 20),
-
-                      // --- ÁTOMO DE ENTRADA (PRECIO) ---
                       InputField(
                         controller: precioCtrl,
                         label: "Precio del producto",
@@ -93,11 +85,10 @@ class _PaginaViewState extends State<Ej48PaginaView> {
                       ),
                       const SizedBox(height: 24),
 
-                      // --- ÁTOMO DE BOTÓN (INGRESAR) ---
                       BotonComprobar(
                         onPressed: _ingresar,
                         label: "Ingresar Artículo",
-                        isPrimary: false, // Estilo secundario
+                        isPrimary: false,
                         icon: Icons.add_shopping_cart,
                       ),
                     ],
@@ -105,12 +96,10 @@ class _PaginaViewState extends State<Ej48PaginaView> {
                 ),
               ),
               const SizedBox(height: 20),
-
-              // --- ÁTOMO DE BOTÓN (CALCULAR) ---
               BotonComprobar(
                 onPressed: _calcular,
                 label: "Calcular Descuentos",
-                isPrimary: true, // Estilo primario
+                isPrimary: true,
                 icon: Icons.calculate_outlined,
               ),
             ],

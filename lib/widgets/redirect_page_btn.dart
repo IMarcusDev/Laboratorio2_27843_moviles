@@ -4,11 +4,7 @@ class RedirectPageBtn extends StatefulWidget {
   final String text;
   final String path;
 
-  const RedirectPageBtn({
-    super.key,
-    required this.text,
-    required this.path,
-  });
+  const RedirectPageBtn({super.key, required this.text, required this.path});
 
   @override
   State<RedirectPageBtn> createState() => _RedirectPageBtnState();
@@ -36,19 +32,19 @@ class _RedirectPageBtnState extends State<RedirectPageBtn> {
             gradient: LinearGradient(
               colors: _isHovered
                   ? [
-                      theme.colorScheme.primary.withOpacity(0.9),
-                      theme.colorScheme.secondary.withOpacity(0.9),
+                      theme.colorScheme.primary.withValues(),
+                      theme.colorScheme.secondary.withValues(),
                     ]
                   : [
-                      theme.colorScheme.primary.withOpacity(0.8),
-                      theme.colorScheme.secondary.withOpacity(0.6),
+                      theme.colorScheme.primary.withValues(),
+                      theme.colorScheme.secondary.withValues(),
                     ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
             boxShadow: [
               BoxShadow(
-                color: theme.colorScheme.primary.withOpacity(0.25),
+                color: theme.colorScheme.primary.withValues(),
                 blurRadius: _isHovered ? 12 : 6,
                 offset: const Offset(0, 4),
               ),

@@ -6,12 +6,10 @@ class TextFieldFasteResponse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // No mostrar nada si el mensaje está vacío
     if (mensaje.isEmpty) {
       return const SizedBox.shrink();
     }
 
-    // Determinar el color basado en el contenido del mensaje
     final bool isSuccess = mensaje.toLowerCase().contains("exito");
     final Color backgroundColor = isSuccess
         ? Colors.green.shade100

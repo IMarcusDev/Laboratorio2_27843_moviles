@@ -27,7 +27,6 @@ class Ej48ResultadoView extends StatelessWidget {
               child: Text(
                 resultado,
                 style: theme.textTheme.bodyLarge?.copyWith(
-                  // La fuente monoespaciada es excelente para texto formateado
                   fontFamily: 'monospace',
                   height: 1.5,
                 ),

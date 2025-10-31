@@ -4,6 +4,8 @@
 import 'package:flutter/material.dart';
 
 class ResultadoView extends StatelessWidget {
+  const ResultadoView({super.key});
+
   @override
   Widget build(BuildContext context) {
     final resultado = ModalRoute.of(context)!.settings.arguments as String;

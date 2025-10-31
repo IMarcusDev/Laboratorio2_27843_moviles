@@ -6,7 +6,7 @@ class Ej42Model {
   static const double precioS = 20.0;
   static const double precioD = 25.0;
   static const double precioT = 28.0;
-  static const double recargoTarjeta = 0.05; // 5%
+  static const double recargoTarjeta = 0.05;
 
   Ej42Model(this.sencillas, this.dobles, this.triples);
 

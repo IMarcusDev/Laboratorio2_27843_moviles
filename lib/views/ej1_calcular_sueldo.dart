@@ -48,7 +48,6 @@ class _Ej1CalcularSueldoState extends State<Ej1CalcularSueldo> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // --- TARJETA PRINCIPAL ---
             Card(
               elevation: 4,
               shape: RoundedRectangleBorder(
@@ -59,24 +58,14 @@ class _Ej1CalcularSueldoState extends State<Ej1CalcularSueldo> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    InputVenta(
-                      controller: venta1Ctrl,
-                      label: "Venta 1",
-                    ),
+                    InputVenta(controller: venta1Ctrl, label: "Venta 1"),
                     const SizedBox(height: 16),
-                    InputVenta(
-                      controller: venta2Ctrl,
-                      label: "Venta 2",
-                    ),
+                    InputVenta(controller: venta2Ctrl, label: "Venta 2"),
                     const SizedBox(height: 16),
-                    InputVenta(
-                      controller: venta3Ctrl,
-                      label: "Venta 3",
-                    ),
+                    InputVenta(controller: venta3Ctrl, label: "Venta 3"),
 
                     const SizedBox(height: 30),
 
-                    // Botones
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -84,10 +73,7 @@ class _Ej1CalcularSueldoState extends State<Ej1CalcularSueldo> {
                           text: 'Calcular Sueldo',
                           onPressed: _calcularSueldo,
                         ),
-                        ProcessBtn(
-                        text: 'Ver Factura',
-                        onPressed: _verFactura,
-                      ),
+                        ProcessBtn(text: 'Ver Factura', onPressed: _verFactura),
                       ],
                     ),
                   ],
